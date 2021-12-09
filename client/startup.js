@@ -6,7 +6,7 @@ let marks = new Array();
 let closeMarks = new Array();
 
 // Render close marks.
-alt.everyTick(async ()=> {
+alt.everyTick(()=> {
   if (closeMarks.length > 0) {
     closeMarks.forEach(mark => {
       drawMarker(mark);
@@ -33,7 +33,7 @@ alt.onServer('syncMarks', (data) => {
 });
 
 function createMark(pos) {
-  let mark = { type: 1, pos: pos, dir: new alt.Vector3(0, 0, 0), rot: new alt.Vector3(0, 0, 0), scale: new alt.Vector3(1, 1, 1), color: {red: 0, green: 0, blue: 255, alpha: 100}};
+  let mark = { type: 1, pos: pos, dir: new alt.Vector3(0, 0, 0), rot: new alt.Vector3(0, 0, 0), scale: new alt.Vector3(2, 2, 1), color: {red: 0, green: 0, blue: 255, alpha: 100}};
 
   return mark;
 }

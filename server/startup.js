@@ -8,7 +8,7 @@ alt.on('playerConnect', (player) => {
   player.model = 'mp_m_freemode_01';
 
   let markers = new Array();
-  let garage = new alt.ColshapeCylinder(212.8396, -826.3209, 30.7964, 2, 1);
+  let garage = new alt.ColshapeCylinder(212.8396, -826.3209, 30.7964, 2, 5);
   garages.push(garages);
   markers.push(garage.pos);
   alt.emitClientRaw(player, 'syncMarks', markers);
