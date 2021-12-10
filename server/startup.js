@@ -1,19 +1,32 @@
 /// <reference types="@altv/types-server" />
 import alt from 'alt-server';
 
-let garages = new Array();
+//Commands
+import './commands/vehicle';
+// Systems
+import './systems/chat';
+// Prototypes
+import './prototypes/player';
+// Utility
+import './utility/array';
+import './utility/vector';
+
+//let garages = new Array();
 
 alt.on('playerConnect', (player) => {
-  player.spawn(205.8396, -826.3209, 30.7964, 0);
+  alt.emitClient(player, 'chat:Init');
+  player.spawn(220.4352, -788.0967, 30.8132, 0);
   player.model = 'mp_m_freemode_01';
 
-  let markers = new Array();
-  let garage = new alt.ColshapeCylinder(212.8396, -826.3209, 30.7964, 2, 5);
-  garages.push(garages);
-  markers.push(garage.pos);
-  alt.emitClientRaw(player, 'syncMarks', markers);
+  new alt.ColshapeCylinder(216.4352, -788.0967, 30.8132, 1, 5);
+
+  alt.emitClientRaw(player, 'createMark', {x: 216.4352, y: -788.0967, z: 30.8132});
 });
 
-alt.on('entityEnterColshape', (colshape, entity) => {
-  alt.log("ok")
+alt.on('entityEnterColshape', (colshape, player) => {
+  console.log(`A player has entered a colshape`);
+});
+
+alt.on('entityLeaveColshape', (colshape, entity) => {
+  alt.log("leave")
 });
