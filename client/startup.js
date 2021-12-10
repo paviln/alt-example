@@ -9,10 +9,10 @@ let closeMarks = new Array();
 
 // Render close marks.
 alt.everyTick(()=> {
-  closeMarks.forEach(mark => {
-    drawMarker(mark);
-  });
+  drawMarker(createMark(new alt.Vector3(216.4352, -788.0967, 30.8132)));
 });
+
+/** 
 
 // Find close marks to player.
 alt.setInterval(() => {
@@ -27,8 +27,9 @@ alt.setInterval(() => {
 }, 1000);
 
 alt.onServer('createMark', (data) => {
-  marks.push(createMark(new alt.Vector3(data.x, data.y, data.z)));
+  marks.push(createMark());
 });
+*/
 
 function createMark(pos) {
   let mark = { type: 1, pos: pos, dir: new alt.Vector3(0, 0, 0), rot: new alt.Vector3(0, 0, 0), scale: new alt.Vector3(2, 2, 1), color: {red: 0, green: 0, blue: 255, alpha: 100}};

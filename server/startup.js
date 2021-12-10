@@ -18,9 +18,10 @@ alt.on('playerConnect', (player) => {
   player.spawn(220.4352, -788.0967, 30.8132, 0);
   player.model = 'mp_m_freemode_01';
 
-  new alt.ColshapeCylinder(216.4352, -788.0967, 30.8132, 1, 5);
+  let test = new alt.ColshapeCylinder(216.4352, -788.0967, 30.8132, 3, 9999 );
+  test.playersOnly = true;
 
-  alt.emitClientRaw(player, 'createMark', {x: 216.4352, y: -788.0967, z: 30.8132});
+  //alt.emitClientRaw(player, 'createMark', {x: 216.4352, y: -788.0967, z: 30.8132});
 });
 
 alt.on('entityEnterColshape', (colshape, player) => {
